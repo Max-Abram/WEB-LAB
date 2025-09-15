@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+<style>
+.myDiv {
+  border: 5px outset lightcyan;
+  background-color: lightslategray;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+<h1>Settings</h1>
+<p>All settings</p>
+<p>Published</p>
+<p>BTC</p>
+<p>USDT</p>
+<p>TON</p>
