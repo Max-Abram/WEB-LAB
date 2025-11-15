@@ -1,0 +1,320 @@
+// scss/styles.scss
+
+// 1. Імпорт файлів
+@import 'variables';
+@import 'mixin';
+
+// 2. Базові стилі
+body {
+    font-family: $font-family-base;
+    background-color: $bg-color-page;
+    color: $text-color-primary;
+    margin: 0;
+    padding: $spacing-lg;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: $spacing-md;
+}
+
+// 3. Компоненти та Макети
+
+// .container об'єднує два класи з вашого CSS
+.container {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    @include flex-column($gap: $spacing-lg);
+    
+    background: $bg-color-card;
+    @include border-radius($border-radius-sm);
+    @include box-shadow(0 1px 3px $shadow-color);
+    padding: 20px;
+}
+
+.tabs {
+    @include flex-row();
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $spacing-md;
+
+    .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        color: $text-color-primary;
+
+        &.active {
+            border-bottom: 2px solid $color-success;
+            font-weight: 500;
+        }
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+        text-align: left;
+        padding: $spacing-sm-md;
+        border-bottom: 1px solid $bg-color-disabled;
+    }
+
+    th {
+        color: $text-color-secondary;
+        font-weight: 500;
+    }
+
+    td {
+        a {
+            color: $color-link;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    @include border-radius(20px);
+    font-size: 13px;
+    font-weight: 500;
+
+    &.draft {
+        background: $bg-color-light-gray;
+        color: $text-color-secondary;
+    }
+
+    &.active {
+        background: $bg-color-success-light;
+        color: $color-success-dark;
+    }
+}
+
+.delete-icon {
+    text-align: right;
+    img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}
+
+/* --- ЗАГАЛЬНІ КОМПОНЕНТИ --- */
+.card {
+    background-color: $bg-color-card;
+    @include border-radius($border-radius-md);
+    padding: $spacing-lg;
+    border: 1px solid $border-color-light;
+    @include flex-column($gap: $spacing-base);
+}
+
+.btn {
+    padding: $spacing-sm $spacing-base;
+    @include border-radius($border-radius-sm);
+    border: 1px solid $border-color-medium;
+    background-color: $bg-color-light;
+    font-weight: 500;
+    cursor: pointer;
+
+    &.btn-primary {
+        background-color: $color-primary;
+        color: $color-white;
+        border-color: $color-primary;
+    }
+
+    &:disabled {
+        background-color: $bg-color-disabled;
+        cursor: not-allowed;
+        color: $text-color-disabled;
+    }
+}
+
+.input {
+    width: 100%;
+    padding: 10px $spacing-sm-md;
+    border: 1px solid $border-color-medium;
+    @include border-radius($border-radius-sm);
+}
+
+.input-label {
+    font-weight: 500;
+}
+
+.input-hint, .small-text, .text-muted {
+    font-size: 12px;
+    color: $text-color-muted;
+}
+
+.card-header {
+    @include flex-between-center;
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+
+/* --- ВЕРХНЯ ПАНЕЛЬ (HEADER) --- */
+.page-header {
+    @include flex-between-center;
+
+    .breadcrumbs {
+        color: $text-color-muted;
+        a.active {
+            color: $text-color-primary;
+            font-weight: 500;
+        }
+    }
+
+    .header-actions {
+        @include flex-row($gap: $spacing-sm-md);
+    }
+}
+
+/* --- СПИСКИ (LIST) --- */
+.list {
+    @include flex-column($gap: $spacing-sm);
+    border-top: 1px solid $bg-color-disabled;
+    padding-top: $spacing-base;
+
+    .list-item {
+        @include flex-between-center;
+        padding: $spacing-sm;
+        @include border-radius($border-radius-sm);
+        text-decoration: none;
+        color: $text-color-primary;
+
+        &:hover, &.active {
+            background-color: $bg-color-hover;
+        }
+        &.variant {
+            padding-left: 32px; /* Відступ для варіантів */
+        }
+    }
+}
+
+/* --- СПЕЦИФІЧНІ СТИЛІ --- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    align-items: start;
+}
+
+.grid-column {
+    @include flex-column($gap: $spacing-lg);
+}
+
+.text-center { align-items: center; }
+.empty-state-icon { max-width: 100px; }
+.add-button {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    @include border-radius(50%);
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.item-actions, .card-actions {
+    @include flex-row($gap: $spacing-sm-md);
+}
+
+.card-actions { justify-content: flex-end; }
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.selection-info {
+    font-weight: 500;
+}
+
+.arrow-icon {
+    &::before {
+        content: '▼';
+    }
+    &.up::before {
+        content: '▲';
+    }
+}
+.full-width {
+    width: 100%;
+}
+
+// 4. АДАПТИВНІСТЬ (МЕДІА-ЗАПИТИ)
+
+@media (max-width: $breakpoint-md) {
+    .grid-layout {
+        grid-template-columns: 1fr; // Складаємо колонки в одну
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-base;
+    }
+}
+
+@media (max-width: $breakpoint-sm) {
+    body {
+        padding: $spacing-base; // Менші відступи на мобілці
+    }
+
+    .container {
+        padding: $spacing-base;
+    }
+
+    .tabs {
+        overflow-x: auto; // Дозволяємо горизонтальний скрол
+        white-space: nowrap;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    // Адаптація таблиці
+    table {
+        thead {
+            display: none; // Ховаємо заголовки
+        }
+
+        tr {
+            display: block;
+            margin-bottom: $spacing-md;
+            border: 1px solid $border-color;
+            @include border-radius($border-radius-sm);
+        }
+
+        td {
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid $border-color-light;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        .delete-icon {
+            text-align: left; // Скидаємо вирівнювання
+        }
+    }
+}

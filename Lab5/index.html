@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    
+    <header class="page-header">
+        <h1>Settings</h1>
+        <div class="header-actions">
+            <button class="btn btn-primary" id="create-setting-btn">Create Setting</button>
+        </div>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active">All settings</div>
+        <div class="tab">Published</div>
+        <div class="tab">BTC</div>
+        <div class="tab">USDT</div>
+        <div class="tab">TON</div>
+    </div>
+
+    <div id="empty-state-container" class="card text-center" style="display: none;">
+        <img src="https://i.imgur.com/gslp42T.png" alt="Empty state icon" class="empty-state-icon">
+        <p class="text-muted">Oops, seems that you have no settings yet.</p>
+        <p class="small-text">Create your first setting!</p>
+    </div>
+
+    <table id="settings-table">
+        <thead>
+            <tr>
+                <th>Setting name</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="settings-table-body">
+            </tbody>
+    </table>
+
+</div>
+
+<template id="setting-row-template">
+    <tr>
+        <td><a href="settings.html" class="setting-name">Setting Name</a></td>
+        <td><span class="status draft setting-status">Draft</span></td>
+        <td class="delete-icon">
+            <button class="icon-btn delete-btn">🗑️</button>
+        </td>
+    </tr>
+</template>
+
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
