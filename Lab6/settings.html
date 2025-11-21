@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="page-header">
+            <p class="breadcrumbs">
+                <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> / 
+                <span id="breadcrumb-name">Setting Name</span>
+            </p>
+            
+            <div class="header-actions">
+                <button class="btn" id="discard-btn" disabled>Discard</button>
+                <button class="btn" id="save-btn" disabled>Save</button>
+                <button class="btn btn-primary" id="create-formula-btn">Create Formula</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <label for="setting-title" class="input-label">Title</label>
+                <input type="text" id="setting-title" class="input" placeholder="Setting Name">
+            </section>
+
+            <section id="empty-state-container" class="card text-center" style="display: none;">
+                <img src="https://i.imgur.com/gslp42T.png" alt="Empty state icon" class="empty-state-icon">
+                <p class="text-muted">Oopsie, seems that you have no formulas yet</p>
+                <button class="add-button" id="add-formula-empty-btn">+</button>
+                <p class="small-text">Create your first formula!</p>
+            </section>
+
+            <section id="formulas-container" class="card">
+                <h2 class="card-title">Formulas</h2>
+                <div class="list" id="formulas-list">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <template id="formula-item-template">
+        <div class="list-item">
+            <span class="formula-name">Formula Name</span>
+            <div class="item-actions">
+                <button class="icon-btn edit-btn">✏️</button>
+                <button class="icon-btn delete-btn">🗑️</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="data.js"></script>
+    <script src="settings-script.js"></script> 
+</body>
+</html>

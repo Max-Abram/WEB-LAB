@@ -1,0 +1,48 @@
+// scss/_variables.scss
+
+// === Кольори ===
+$color-white: #fff;
+$color-black: #000;
+$color-primary: $color-black; // Основний для кнопок
+
+$bg-color-page: #f0f2f5;
+$bg-color-card: $color-white;
+$bg-color-light: #f8f9fa;
+$bg-color-hover: #f1f3f5;
+$bg-color-disabled: #e9ecef;
+$bg-color-light-gray: #f5f5f5;
+$bg-color-success-light: #d4f5e1;
+
+$text-color-primary: #212529;
+$text-color-secondary: #555;
+$text-color-muted: #6c757d;
+$text-color-disabled: #adb5bd;
+
+$color-link: #1a73e8;
+$color-success: #0f9d58;
+$color-success-dark: #0c8f3b;
+
+$border-color: #ddd;
+$border-color-light: #dee2e6;
+$border-color-medium: #ced4da;
+
+$shadow-color: rgba($color-black, 0.1);
+
+// === Типографія ===
+$font-family-base: 'Roboto', sans-serif;
+
+// === Макети та Відступи ===
+$spacing-base: 16px;
+$spacing-lg: 24px;
+$spacing-md: 15px;
+$spacing-sm-md: 12px;
+$spacing-sm: 8px;
+
+$border-radius-sm: 6px;
+$border-radius-md: 8px;
+
+$max-width-container: 1200px;
+
+// === Адаптивність ===
+$breakpoint-md: 768px; // Планшети
+$breakpoint-sm: 480px; // Мобільні
